@@ -152,7 +152,7 @@ export default function MyComponent() {
     );
 }
 ```
-For mor details on how CSS-transitions works, see the following [guide](https://css-tricks.com/almanac/properties/t/transition/).
+For more details on how CSS-transitions work, see the following [guide](https://css-tricks.com/almanac/properties/t/transition/).
 
 ## Errors
 
