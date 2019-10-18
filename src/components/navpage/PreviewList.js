@@ -59,7 +59,7 @@ function PreviewList(props) {
     return (
         <Grid container spacing={4} alignItems="stretch">
             {items.map(item => (
-                <PreviewListItem item={item}/>
+                <PreviewListItem item={item} key={item.title}/>
             ))}
         </Grid>
     );
