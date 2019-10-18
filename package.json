@@ -4,7 +4,9 @@
   "description": "This project is dedicated for practicing with various  React Material-UI Templates:  * Basic Dashboard page  * Basic Sign-In page  * Premium OnePirate template  * Premium PaperBase template  * Premium DeviasKit template",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   },
   "repository": {
     "type": "git",

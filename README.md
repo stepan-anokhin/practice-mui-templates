@@ -19,3 +19,14 @@ First of all we need to install all required dependencies:
 npm init -y
 npm install --save react react-dom @material-ui/core next
 ```
+
+Next, add the `next.js` scripts to the `package.json`
+```json
+{
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  }
+}
+```
