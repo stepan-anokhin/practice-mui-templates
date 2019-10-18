@@ -100,6 +100,26 @@ export default props => (
 );
 ```
 
+## Class Composition with `clsx`
+
+Some of the templates are using `clsx` - a tiny utility to dynamically combine CSS classes. 
+
+Installation: 
+```shell script
+npm install --save clsx
+```
+
+Usage:
+```js
+import React, {useState} from "react"
+import clsx from "clsx";
+
+export default function MyComponent() {
+    const [open, setOpen] = useState(false);
+    return <div className={clsx('content', open && 'open')}>Hello</div>    
+}
+```
+
 ## Errors
 
 ### Prop `className` did not match
