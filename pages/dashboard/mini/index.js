@@ -55,6 +55,8 @@ const useStyles = makeStyles(theme => ({
         position: 'relative',
         whiteSpace: 'nowrap',
         width: drawerWidth,
+        // this transition describes how
+        // sidebar menu is shrunk when it is close
         transition: theme.transitions.create('width', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
@@ -65,6 +67,8 @@ const useStyles = makeStyles(theme => ({
         // below the menu icons
         overflowX: 'hidden',
         width: theme.spacing(7),
+        // this transition describes how
+        // sidebar menu is stretched when it is close
         transition: theme.transitions.create('width', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,

@@ -120,6 +120,40 @@ export default function MyComponent() {
 }
 ```
 
+## Transitions with `@material-ui/styles`
+
+Material-UI theme provides a great API to manage transitions:
+```jsx harmony
+const useStyles = makeStyles(theme => ({
+  open: {
+    width: 100,
+    // this idiomatic method call will generate 
+    // the required transition spec. 
+    transition: theme.transitions.create(['width'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+  },
+  close: {
+    width: 0,
+    transition: theme.transitions.create(['width'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+  },
+}));
+```
+Then in the Component definition:
+```jsx harmony
+export default function MyComponent() {
+    const classes = useStyles();
+    return (
+        <div className={clsx(open && classes.open, !open && classes.close)}>Hello</div>
+    );
+}
+```
+For mor details on how CSS-transitions works, see the following [guide](https://css-tricks.com/almanac/properties/t/transition/).
+
 ## Errors
 
 ### Prop `className` did not match
