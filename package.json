@@ -21,7 +21,9 @@
   "homepage": "https://github.com/stepan-anokhin/practice-mui-templates#readme",
   "dependencies": {
     "@material-ui/core": "^4.5.1",
+    "markdown-to-jsx": "^6.10.3",
     "next": "^9.1.1",
+    "raw-loader": "^3.1.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
   }
