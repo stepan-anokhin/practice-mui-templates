@@ -21,7 +21,7 @@ logic at all :) )
 First of all we need to install all required dependencies:
 ```shell script
 npm init -y
-npm install --save react react-dom @material-ui/core next
+npm install --save react react-dom @material-ui/core @material-ui/icons next
 ```
 
 Next, add the `next.js` scripts to the `package.json`
