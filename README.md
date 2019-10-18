@@ -102,7 +102,7 @@ export default props => (
 
 ## Class Composition with `clsx`
 
-Some of the templates are using `clsx` - a tiny utility to dynamically combine CSS classes. 
+Some of the templates are using [clsx](https://github.com/lukeed/clsx) - a tiny utility to dynamically combine CSS classes. 
 
 Installation: 
 ```shell script
