@@ -11,10 +11,10 @@ const useIndexStyles = makeStyles(theme => ({
         backgroundColor: theme.palette.grey[800],
         color: theme.palette.common.white,
         marginBottom: theme.spacing(4),
-        backgroundImage: 'url(/static/landing/landing-background-foggy-forest.jpg)',
+        backgroundImage: 'url(/static/landing/landing-background-night-forest.jpg)',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'left bottom',
+        backgroundPosition: 'left center',
     },
     headerContent: {
         position: 'relative',
@@ -35,7 +35,7 @@ function LandingDescription() {
             {
                 <img
                     style={{display: 'none'}}
-                    src='/static/landing/landing-background-foggy-forest.jpg'
+                    src='/static/landing/landing-background-night-forest.jpg'
                     alt="background"
                 />
             }
