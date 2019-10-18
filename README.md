@@ -13,7 +13,7 @@ sake of fastest prototyping (and as there is not backend
 logic at all :) )
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/stepan-anokhin/practice-mui-templates/master/preview.png" width="1377" alt="Preview">
+    <img src="preview.png" width="1377" alt="Preview">
 </p>
 
 ## Setup a New Project
