@@ -1,0 +1,26 @@
+{
+  "name": "practice-mui-templates",
+  "version": "1.0.0",
+  "description": "This project is dedicated for practicing with various  React Material-UI Templates:  * Basic Dashboard page  * Basic Sign-In page  * Premium OnePirate template  * Premium PaperBase template  * Premium DeviasKit template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stepan-anokhin/practice-mui-templates.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stepan-anokhin/practice-mui-templates/issues"
+  },
+  "homepage": "https://github.com/stepan-anokhin/practice-mui-templates#readme",
+  "dependencies": {
+    "@material-ui/core": "^4.5.1",
+    "next": "^9.1.1",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  }
+}
