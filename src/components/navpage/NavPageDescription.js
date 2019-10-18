@@ -2,8 +2,7 @@ import React from 'react';
 import {makeStyles} from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import Markdown from "../components/Markdown";
-import description from "./description.md";
+import Markdown from "../Markdown";
 
 const useIndexStyles = makeStyles(theme => ({
     header: {
@@ -11,7 +10,7 @@ const useIndexStyles = makeStyles(theme => ({
         backgroundColor: theme.palette.grey[800],
         color: theme.palette.common.white,
         marginBottom: theme.spacing(4),
-        backgroundImage: 'url(/static/landing/landing-background-night-forest.jpg)',
+        backgroundImage: 'url(/static/navpage/background-night-forest.jpg)',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'left center',
@@ -27,15 +26,16 @@ const useIndexStyles = makeStyles(theme => ({
 }));
 
 
-function LandingDescription() {
+function NavPageDescription(props) {
     const classes = useIndexStyles();
+    const {description} = props;
     return (
         <Paper className={classes.header}>
             {/*  Increase background image priority  */}
             {
                 <img
                     style={{display: 'none'}}
-                    src='/static/landing/landing-background-night-forest.jpg'
+                    src='/static/navpage/background-night-forest.jpg'
                     alt="background"
                 />
             }
@@ -52,4 +52,4 @@ function LandingDescription() {
     );
 }
 
-export default LandingDescription;
+export default NavPageDescription;

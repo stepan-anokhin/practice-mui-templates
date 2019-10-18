@@ -8,7 +8,7 @@ const useIndexStyles = makeStyles(theme => ({
 }));
 
 
-function LandingToolbar() {
+function NavPageToolbar() {
     const classes = useIndexStyles();
     return (
         <Toolbar className={classes.toolbar}>
@@ -19,4 +19,4 @@ function LandingToolbar() {
     );
 }
 
-export default LandingToolbar;
+export default NavPageToolbar;
