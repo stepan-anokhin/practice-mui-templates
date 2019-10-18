@@ -95,3 +95,40 @@ export default props => (
     </div>
 );
 ```
+
+## Errors
+
+### Prop `className` did not match
+
+##### Description
+When page is reloaded the page's layout is displayed 
+incorrectly and there is a Warning in the console:
+```
+index.js:1 Warning: Prop `className` did not match. 
+Server: "MuiToolbar-root MuiToolbar-regular makeStyles-toolbar-46 MuiToolbar-gutters" 
+Client: "MuiToolbar-root MuiToolbar-regular makeStyles-toolbar-1 MuiToolbar-gutters" 
+    in div (created by Toolbar)
+    in Toolbar (created by WithStyles(ForwardRef(Toolbar)))
+    in WithStyles(ForwardRef(Toolbar)) (at pages/​index.js:40)
+    in Index (created by App)
+    in App
+```
+
+This is a particularly hard-to-fix bug. Here is what is know so far: 
+* It happens when page is reloaded.
+* It is reproducible without `next.config.js`
+* It is reproducible without `.babelrc`
+* It is well-known bug. See the following issues:
+  * [zeit/next.js/issues/7322](https://github.com/zeit/next.js/issues/7322)
+  * [styled-components/issues/1239](https://github.com/styled-components/styled-components/issues/1239)
+
+##### Solution
+
+Still Reproducible. 
+
+This 
+[comment](https://github.com/styled-components/babel-plugin-styled-components/issues/78#issuecomment-361160935)
+ is several times mentioned as a working solution: 
+
+The issue with exactly (?) the same error-message is raised for `babel-plugin-styled-components`
+so this is probably a `babel-plugin-styled-components`'s problem. 
