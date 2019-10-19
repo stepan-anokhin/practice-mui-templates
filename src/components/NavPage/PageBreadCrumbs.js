@@ -7,7 +7,10 @@ import {makeStyles} from "@material-ui/core";
 const useStyles = makeStyles(theme => ({
     root: {
         margin: theme.spacing(4),
-    }
+    },
+    link: {
+        cursor: 'pointer',
+    },
 }));
 
 function PageBreadCrumbs(props) {
@@ -20,7 +23,7 @@ function PageBreadCrumbs(props) {
         <Breadcrumbs className={classes.root}>
             {parents.map(item => (
                 <Link href={item.link}>
-                    <MuiLink color="inherit">
+                    <MuiLink className={classes.link} color="inherit">
                         {item.name}
                     </MuiLink>
                 </Link>
