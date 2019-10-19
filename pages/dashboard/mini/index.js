@@ -9,6 +9,9 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import menuCategories from '../../../src/dashboard/mini/menu-items';
 import MenuItemCategory from "../../../src/dashboard/mini/MenItemGroup";
 import Container from "@material-ui/core/Container";
+import Budget from "../../../src/dashboard/components/Budget";
+import Grid from "@material-ui/core/Grid";
+import TotalUsers from "../../../src/dashboard/components/TotalUsers";
 
 const drawerWidth = 240;
 
@@ -186,7 +189,29 @@ function Index() {
                 <div className={classes.contentAppBarSpacer}/>
                 {/* Actual page content container */}
                 <Container className={classes.contentContainer}>
-                    Here goes page content...
+                    <Grid
+                        container
+                        spacing={4}
+                    >
+                        <Grid
+                            item
+                            xl={3}
+                            lg={3}
+                            sm={6}
+                            xs={12}
+                        >
+                            <Budget value={17000} diffPercent={-12}/>
+                        </Grid>
+                        <Grid
+                            item
+                            xl={3}
+                            lg={3}
+                            sm={6}
+                            xs={12}
+                        >
+                            <TotalUsers value={2300} diffPercent={+3}/>
+                        </Grid>
+                    </Grid>
                 </Container>
             </main>
         </div>
