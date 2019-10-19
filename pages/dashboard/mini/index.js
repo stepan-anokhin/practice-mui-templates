@@ -15,21 +15,23 @@ const useStyles = makeStyles(theme => ({
     root: {},
     appBar: {
         zIndex: theme.zIndex.drawer + 1,
+        // this transition defines how the
+        // app-bar is being shrunk when
+        // drawer is expanded
         transition: theme.transitions.create(['width', 'margin'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
     },
     // This class describes how the
-    // app-bar looks when sidebar
-    // is open:
+    // app-bar looks when drawer is expanded
     appBarShifted: {
         // Leave a space for the top-most
-        // sidebar button (a close-button)
+        // drawer button (a close-button)
         marginLeft: drawerWidth,
         // Calculate app-bar width when
         // the appropriate space to the left
-        // is given to the sidebar menu
+        // is given to the drawer
         width: `calc(100% - ${drawerWidth}px)`,
         transition: theme.transitions.create(['width', 'margin'], {
             easing: theme.transitions.easing.sharp,
@@ -54,9 +56,13 @@ const useStyles = makeStyles(theme => ({
     drawerPaper: {
         position: 'relative',
         whiteSpace: 'nowrap',
+        // without this property there will be
+        // a scroll-bar below the drawer
+        // when it is being
+        overflowX: 'hidden',
         width: drawerWidth,
         // this transition describes how
-        // sidebar menu is shrunk when it is close
+        // drawer is being collapsed
         transition: theme.transitions.create('width', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
@@ -64,22 +70,26 @@ const useStyles = makeStyles(theme => ({
     },
     drawerPaperClose: {
         // make sure there is no scrollbar
-        // below the menu icons
+        // below the menu icons when drawer is close
         overflowX: 'hidden',
+        // TODO: investigate why this property
+        // TODO: doesn't define width of close drawer...
         width: theme.spacing(7),
         // this transition describes how
-        // sidebar menu is stretched when it is close
+        // drawer is being expanded
         transition: theme.transitions.create('width', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
         }),
+        // TODO: understand why it is this breakpoint
+        // TODO: that defines width of the close drawer...
         [theme.breakpoints.up('sm')]: {
             // this value should fit the
             // width of menu item icons
             width: theme.spacing(9),
         },
     },
-    // sidebar menu close-button styles:
+    // drawer's close-button styles:
     closeButton: {
         display: 'flex',
         alignItems: 'center',
