@@ -1,20 +1,20 @@
 import React from 'react';
 import {CssBaseline} from "@material-ui/core";
 import Container from "@material-ui/core/Container";
-import NavPageToolbar from "./NavPageToolbar";
-import NavPageDescription from "./NavPageDescription";
+import PageToolbar from "./PageToolbar";
+import PageDescription from "./PageDescription";
 import PreviewList from "./PreviewList";
 
 
-function NavPage(props) {
+function Page(props) {
     const {description, items} = props;
     return (
         <React.Fragment>
             <CssBaseline/>
             <Container maxWidth="lg">
-                <NavPageToolbar/>
+                <PageToolbar/>
                 <main>
-                    <NavPageDescription description={description}/>
+                    <PageDescription description={description}/>
                     <PreviewList items={items}/>
                 </main>
             </Container>
@@ -22,4 +22,4 @@ function NavPage(props) {
     );
 }
 
-export default NavPage;
+export default Page;

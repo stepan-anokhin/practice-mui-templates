@@ -182,7 +182,9 @@ function Index() {
                 {menuCategories.map(category => (<MenuItemCategory {...category}/>))}
             </Drawer>
             <main className={classes.content}>
+                {/* Content space to fill the space behind app-bar */}
                 <div className={classes.contentAppBarSpacer}/>
+                {/* Actual page content container */}
                 <Container className={classes.contentContainer}>
                     Here goes page content...
                 </Container>

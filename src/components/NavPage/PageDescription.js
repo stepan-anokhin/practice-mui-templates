@@ -26,7 +26,7 @@ const useIndexStyles = makeStyles(theme => ({
 }));
 
 
-function NavPageDescription(props) {
+function PageDescription(props) {
     const classes = useIndexStyles();
     const {description} = props;
     return (
@@ -52,4 +52,4 @@ function NavPageDescription(props) {
     );
 }
 
-export default NavPageDescription;
+export default PageDescription;
