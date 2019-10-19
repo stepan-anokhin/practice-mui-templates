@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
         width: 56,
     },
     avatarUp: {
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: theme.palette.success.main,
         height: 56,
         width: 56,
     },
@@ -42,21 +42,29 @@ const useStyles = makeStyles(theme => ({
         marginRight: theme.spacing(1),
     },
     diffIconUp: {
-        color: theme.palette.primary.dark,
+        color: theme.palette.success.dark,
     },
     diffValueUp: {
-        color: theme.palette.primary.dark,
+        color: theme.palette.success.dark,
         marginRight: theme.spacing(1),
     },
 }));
 
 
-function MonthDifference(props) {
+function ValueChange(props) {
     const classes = useStyles();
-    const {className, title, value, diffPercent, icon: Icon, ...rest} = props;
+    const {
+        className,
+        title, value,
+        diffPercent,
+        icon: Icon,
+        period = 'month',
+        success,
+        ...rest
+    } = props;
 
-    const up = diffPercent > 0;
-    const ArrowIcon = up ? ArrowUpIcon : ArrowDownIcon;
+
+    const ArrowIcon = success ? ArrowUpIcon : ArrowDownIcon;
 
     return (
         <Card
@@ -77,15 +85,15 @@ function MonthDifference(props) {
                         <Typography variant="h4">{value}</Typography>
                     </Grid>
                     <Grid item>
-                        <Avatar className={up ? classes.avatarUp : classes.avatarDown}>
+                        <Avatar className={success ? classes.avatarUp : classes.avatarDown}>
                             <Icon className={classes.icon}/>
                         </Avatar>
                     </Grid>
                 </Grid>
                 <div className={classes.difference}>
-                    <ArrowIcon className={up ? classes.diffIconUp : classes.diffIconDown}/>
+                    <ArrowIcon className={success ? classes.diffIconUp : classes.diffIconDown}/>
                     <Typography
-                        className={up ? classes.diffValueUp : classes.diffValueDown}
+                        className={success ? classes.diffValueUp : classes.diffValueDown}
                         variant="body2"
                     >
                         {Math.abs(diffPercent)}%
@@ -99,12 +107,14 @@ function MonthDifference(props) {
     );
 }
 
-MonthDifference.propTypes = {
+ValueChange.propTypes = {
     className: PropTypes.string,
     title: PropTypes.string.required,
     value: PropTypes.string.required,
     diffPercent: PropTypes.number.required,
+    period: PropTypes.oneOf(['day', 'week', 'month', 'year']),
+    success: PropTypes.bool.isRequired,
     icon: PropTypes.elementType.required,
 };
 
-export default MonthDifference;
+export default ValueChange;

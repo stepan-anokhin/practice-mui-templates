@@ -1,17 +1,20 @@
 import React, {useState} from "react";
 import {CssBaseline, makeStyles, Toolbar, Typography} from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
 import AppBar from "@material-ui/core/AppBar";
 import clsx from "clsx";
+import {ThemeProvider} from '@material-ui/styles';
 import IconButton from "@material-ui/core/IconButton";
 import Drawer from "@material-ui/core/Drawer";
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import menuCategories from '../../../src/dashboard/mini/menu-items';
-import MenuItemCategory from "../../../src/dashboard/mini/MenItemGroup";
 import Container from "@material-ui/core/Container";
-import Budget from "../../../src/dashboard/components/Budget";
 import Grid from "@material-ui/core/Grid";
-import TotalUsers from "../../../src/dashboard/components/TotalUsers";
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import MenuIcon from "@material-ui/icons/Menu";
+
+import MenuCategory from "../../../src/dashboard/MenuCategory";
+import Budget from "../../../src/dashboard/Budget";
+import TotalUsers from "../../../src/dashboard/TotalUsers";
+import menuCategories from '../../../src/views/Dashboard/menu-items';
+import theme from '../../../src/views/Dashboard/theme';
 
 const drawerWidth = 240;
 
@@ -175,14 +178,14 @@ function Index() {
                 classes={{paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose)}}
                 open={open}
             >
-                {/* Close-menu button*/}
+                {/* Close-drawer button*/}
                 <div className={classes.closeButton}>
                     <IconButton onClick={handleDrawerClose}>
                         <ChevronLeftIcon/>
                     </IconButton>
                 </div>
-                {/* Menu items: */}
-                {menuCategories.map(category => (<MenuItemCategory {...category}/>))}
+                {/* Drawer menu items: */}
+                {menuCategories.map(category => (<MenuCategory {...category}/>))}
             </Drawer>
             <main className={classes.content}>
                 {/* Content space to fill the space behind app-bar */}
@@ -218,4 +221,12 @@ function Index() {
     );
 }
 
-export default Index;
+function Page() {
+    return (
+        <ThemeProvider theme={theme}>
+            <Index/>
+        </ThemeProvider>
+    );
+}
+
+export default Page;

@@ -1,17 +1,20 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import MoneyIcon from "@material-ui/icons/Money";
-import MonthDifference from "./MonthDifference";
+import ValueChange from "../ValueChange";
 
 
 function Budget(props) {
-    const {value, ...rest} = props;
+    const {value, diffPercent, ...rest} = props;
 
     return (
-        <MonthDifference
+        <ValueChange
             title="budget"
             value={`$${value.toLocaleString()}`}
             icon={MoneyIcon}
+            period="month"
+            diffPercent={diffPercent}
+            success={diffPercent >= 0}
             {...rest}
         />
     );

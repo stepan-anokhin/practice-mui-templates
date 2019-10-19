@@ -1,15 +1,18 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import PeopleIcon from "@material-ui/icons/People";
-import MonthDifference from "./MonthDifference";
+import ValueChange from "../ValueChange/ValueChange";
 
 
 function TotalUsers(props) {
+    const {diffPercent, ...rest} = props;
     return (
-        <MonthDifference
+        <ValueChange
             title="Total Users"
             icon={PeopleIcon}
-            {...props}
+            diffPercent={diffPercent}
+            success={diffPercent > 0}
+            {...rest}
         />
     );
 }
