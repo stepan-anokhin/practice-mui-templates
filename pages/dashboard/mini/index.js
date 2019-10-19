@@ -8,16 +8,21 @@ import Drawer from "@material-ui/core/Drawer";
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import menuCategories from '../../../src/dashboard/mini/menu-items';
 import MenuItemCategory from "../../../src/dashboard/mini/MenItemGroup";
+import Container from "@material-ui/core/Container";
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
-    root: {},
+    root: {
+        // without this property the page content
+        // will be displayed below the drawer
+        display: 'flex',
+    },
     appBar: {
         zIndex: theme.zIndex.drawer + 1,
         // this transition defines how the
-        // app-bar is being shrunk when
-        // drawer is expanded
+        // app-bar is being shrunk to the right
+        // when drawer is expanded
         transition: theme.transitions.create(['width', 'margin'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
@@ -58,7 +63,7 @@ const useStyles = makeStyles(theme => ({
         whiteSpace: 'nowrap',
         // without this property there will be
         // a scroll-bar below the drawer
-        // when it is being
+        // when it is being expanded
         overflowX: 'hidden',
         width: drawerWidth,
         // this transition describes how
@@ -72,8 +77,9 @@ const useStyles = makeStyles(theme => ({
         // make sure there is no scrollbar
         // below the menu icons when drawer is close
         overflowX: 'hidden',
-        // TODO: investigate why this property
-        // TODO: doesn't define width of close drawer...
+        // When the `[theme.breakpoints.up('sm')]` breakpoint
+        // is not used it is this property that actually
+        // defines width of the collapsed drawer
         width: theme.spacing(7),
         // this transition describes how
         // drawer is being expanded
@@ -83,6 +89,10 @@ const useStyles = makeStyles(theme => ({
         }),
         // TODO: understand why it is this breakpoint
         // TODO: that defines width of the close drawer...
+
+        // TODO: understand why we need this breakpoint
+        // TODO: even though drawer is successfully
+        // TODO: collapsed by the normal `width` property
         [theme.breakpoints.up('sm')]: {
             // this value should fit the
             // width of menu item icons
@@ -99,6 +109,36 @@ const useStyles = makeStyles(theme => ({
         padding: '0 8px',
         // make sure close-button size fits the toolbar size:
         ...theme.mixins.toolbar,
+    },
+
+    // these styles describe page content container
+    content: {
+        // grab all the remaining space by
+        // the page content.
+        flexGrow: 1,
+        // it is this property that ensures that
+        // drawer is expanded to the very bottom
+        // of the page.
+        height: '100vh',
+        // show scrollbar when content doesn't fit
+        // the viewport height.
+        overflow: 'auto',
+    },
+    // App-bar is displayed 'above' all the content.
+    // So the top-most content will be covert by
+    // the app-bar. One solution is to place an
+    // empty `spacer` element at the top of the content
+    // having the same size as app-bar.
+
+    // By using toolbar mixin we ensure spacer to be
+    // of the same height as the app-bar.
+    contentAppBarSpacer: theme.mixins.toolbar,
+
+    // To control content padding and max width
+    // we introduce another wrapper - a `Container`
+    contentContainer: {
+        paddingTop: theme.spacing(4),
+        paddingBottom: theme.spacing(4),
     },
 }));
 
@@ -141,6 +181,12 @@ function Index() {
                 {/* Menu items: */}
                 {menuCategories.map(category => (<MenuItemCategory {...category}/>))}
             </Drawer>
+            <main className={classes.content}>
+                <div className={classes.contentAppBarSpacer}/>
+                <Container className={classes.contentContainer}>
+                    Here goes page content...
+                </Container>
+            </main>
         </div>
     );
 }

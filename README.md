@@ -155,6 +155,61 @@ export default function MyComponent() {
 For more details on how the corresponding CSS works, see the following 
 [guide](https://css-tricks.com/almanac/properties/t/transition/).
 
+## CSS Breakpoints with `@material-ui/styles`
+
+Material-UI defines a consistent set of predefined CSS-breakpoints. These breakpoints
+are accessible via the `Theme` API. 
+
+For example: 
+```jsx harmony
+const styles = makeStyles(theme => ({
+  root: {
+    backgroundColor: theme.palette.primary.main,
+    [theme.breakpoints.down('sm')]: { 
+      backgroundColor: theme.palette.secondary.main,
+    },
+  }
+}));
+```  
+The root will have secondary background-color on large screens down to the small (`sm`) screen sizes. 
+
+See Material-UI documentation on this topic: [Breakpoints/](https://material-ui.com/customization/breakpoints/).
+
+Breakpoints is a technique to define adaptive CSS styles. The core idea behind breakpoints is to 
+**apply styles conditionally**. To impose such conditions on portions of style-sheets you typically 
+use `@media` query - a specialized CSS API to check if the device meets some criteria.
+
+The `[theme.breakpoints.down('sm')]` will simply generate a `@media` query according to the provided arguments.
+
+For more details on `@media` queries please see this docs: 
+[CSS/Media](https://developer.mozilla.org/en-US/docs/Web/CSS/@media)
+
+`@media` query is an example of at-rules. For general description of CSS at-rules please see this docs: 
+[CSS/At-rule](https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule) 
+
+## Using CSS Mixins
+
+Material-UI theme API provides a nice way to reuse predefined styles of standard UI elements. 
+
+To merge your custom styles with predefined you basically spread the corresponding mixin:
+
+```jsx harmony
+const useStyles = makeStyles(theme => ({
+    // drawer's close-button styles:
+    closeButton: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        // make sure close-button size fits the toolbar size:
+        ...theme.mixins.toolbar,
+    },
+
+    // By using toolbar mixin we ensure spacer to be
+    // of the same height as the app-bar.
+    contentAppBarSpacer: theme.mixins.toolbar,
+}));
+``` 
+See for example here: [pages/dashboard/mini/index.js#L111](https://github.com/stepan-anokhin/practice-mui-templates/blob/master/pages/dashboard/mini/index.js#L111)
 
 ## Errors
 
