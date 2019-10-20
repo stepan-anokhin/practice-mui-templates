@@ -6,14 +6,11 @@ import {ThemeProvider} from '@material-ui/styles';
 import IconButton from "@material-ui/core/IconButton";
 import Drawer from "@material-ui/core/Drawer";
 import Container from "@material-ui/core/Container";
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import MenuIcon from "@material-ui/icons/Menu";
 import Head from "next/head";
-
-import MenuCategory from "../../src/dashboard/components/MenuCategory";
-import menuCategories from '../../src/views/Dashboard/menu-items';
 import theme from '../../src/dashboard/theme';
 import DashboardContent from "../../src/dashboard/components/DashboardContent";
+import DrawerMenu from "../../src/dashboard/components/DrawerMenu";
 
 const drawerWidth = 240;
 
@@ -104,18 +101,6 @@ const useStyles = makeStyles(theme => ({
             width: theme.spacing(9),
         },
     },
-    // drawer's close-button styles:
-    closeButton: {
-        display: 'flex',
-        alignItems: 'center',
-        // make sure close-button icon is always
-        // at the left end of the button:
-        justifyContent: 'flex-end',
-        padding: '0 8px',
-        // make sure close-button size fits the toolbar size:
-        ...theme.mixins.toolbar,
-    },
-
     // these styles describe page content container
     content: {
         // grab all the remaining space by
@@ -177,14 +162,7 @@ function Index() {
                 classes={{paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose)}}
                 open={open}
             >
-                {/* Close-drawer button*/}
-                <div className={classes.closeButton}>
-                    <IconButton onClick={handleDrawerClose}>
-                        <ChevronLeftIcon/>
-                    </IconButton>
-                </div>
-                {/* Drawer menu items: */}
-                {menuCategories.map(category => (<MenuCategory {...category}/>))}
+                <DrawerMenu variant="button" onClose={handleDrawerClose}/>
             </Drawer>
             <main className={classes.content}>
                 {/* Content space to fill the space behind app-bar */}
@@ -203,8 +181,8 @@ function Page() {
         <React.Fragment>
             <Head>
                 <title>Mini variant Drawer</title>
-                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
-                <link rel="stylesheet" href="https://unpkg.com/react-leaflet-markercluster/dist/styles.min.css" />
+                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css"/>
+                <link rel="stylesheet" href="https://unpkg.com/react-leaflet-markercluster/dist/styles.min.css"/>
             </Head>
             <ThemeProvider theme={theme}>
                 <Index/>

@@ -3,7 +3,7 @@ import {ListSubheader} from "@material-ui/core";
 import MenuItem from "./MenuItem";
 import List from "@material-ui/core/List";
 
-export default function MenuItemCategory(props) {
+export default function MenuCategory(props) {
     const {title, items, ...rest} = props;
     const subheader = title ? (<ListSubheader inset>{title}</ListSubheader>) : null;
 

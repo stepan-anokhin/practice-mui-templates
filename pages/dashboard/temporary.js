@@ -7,11 +7,9 @@ import Drawer from "@material-ui/core/Drawer";
 import Container from "@material-ui/core/Container";
 import MenuIcon from "@material-ui/icons/Menu";
 import Head from "next/head";
-
-import MenuCategory from "../../src/dashboard/components/MenuCategory";
-import menuCategories from '../../src/views/Dashboard/menu-items';
 import theme from '../../src/dashboard/theme';
 import DashboardContent from "../../src/dashboard/components/DashboardContent";
+import DrawerMenu from "../../src/dashboard/components/DrawerMenu";
 
 const drawerWidth = 240;
 
@@ -93,13 +91,7 @@ function Index() {
                 </Toolbar>
             </AppBar>
             <Drawer open={open} onClose={handleDrawerClose}>
-                <div className={classes.drawerTopSpacer}/>
-                {menuCategories.map(category => (
-                    <MenuCategory
-                        className={classes.drawerMenu}
-                        {...category}
-                    />
-                ))}
+                <DrawerMenu variant="button" onClose={handleDrawerClose}/>
             </Drawer>
             <main className={classes.content}>
                 {/* Content space to fill the space behind app-bar */}
@@ -117,7 +109,7 @@ function Page() {
     return (
         <React.Fragment>
             <Head>
-                <title>Mini variant Drawer</title>
+                <title>Temporary Drawer</title>
                 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css"/>
                 <link rel="stylesheet" href="https://unpkg.com/react-leaflet-markercluster/dist/styles.min.css"/>
             </Head>

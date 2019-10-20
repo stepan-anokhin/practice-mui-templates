@@ -51,7 +51,7 @@ export const secondaryItems = [
     },
 ];
 
-export default [
+const categories = [
     {
         items: primaryItems,
     },
@@ -59,4 +59,6 @@ export default [
         title: "Saved reports",
         items: secondaryItems,
     },
-]
+];
+
+export default categories;

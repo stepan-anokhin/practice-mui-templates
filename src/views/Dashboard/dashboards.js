@@ -13,6 +13,13 @@ const dashboards = [
             'Not-responsive. Expanded on-demand.',
         link: '/dashboard/temporary',
     },
+    {
+        title: 'Responsive Drawer',
+        image: '/static/dashboard/sm-temporary-drawer.png',
+        description:
+            'Permanent on large screens. Temporary on small screens.',
+        link: '/dashboard/responsive',
+    },
 ];
 
 export default dashboards;
