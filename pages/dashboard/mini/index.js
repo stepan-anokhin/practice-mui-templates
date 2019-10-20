@@ -16,6 +16,7 @@ import TotalUsers from "../../../src/dashboard/TotalUsers";
 import menuCategories from '../../../src/views/Dashboard/menu-items';
 import theme from '../../../src/views/Dashboard/theme';
 import TaskProgress from "../../../src/dashboard/TaskProgress";
+import TotalProfit from "../../../src/dashboard/TotalProfit";
 
 const drawerWidth = 240;
 
@@ -223,6 +224,15 @@ function Index() {
                             xs={12}
                         >
                             <TaskProgress value={75.4}/>
+                        </Grid>
+                        <Grid
+                            item
+                            xl={3}
+                            lg={3}
+                            sm={6}
+                            xs={12}
+                        >
+                            <TotalProfit value={53000} />
                         </Grid>
                     </Grid>
                 </Container>

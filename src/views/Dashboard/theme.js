@@ -4,6 +4,7 @@ const white = '#FFFFFF';
 
 const theme = createMuiTheme({
     palette: {
+        white,
         success: {
             contrastText: white,
             dark: colors.green[900],
