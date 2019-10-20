@@ -6,17 +6,13 @@ import {ThemeProvider} from '@material-ui/styles';
 import IconButton from "@material-ui/core/IconButton";
 import Drawer from "@material-ui/core/Drawer";
 import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import MenuIcon from "@material-ui/icons/Menu";
 
-import MenuCategory from "../../../src/dashboard/MenuCategory";
-import Budget from "../../../src/dashboard/Budget";
-import TotalUsers from "../../../src/dashboard/TotalUsers";
+import MenuCategory from "../../../src/dashboard/components/MenuCategory";
 import menuCategories from '../../../src/views/Dashboard/menu-items';
-import theme from '../../../src/views/Dashboard/theme';
-import TaskProgress from "../../../src/dashboard/TaskProgress";
-import TotalProfit from "../../../src/dashboard/TotalProfit";
+import theme from '../../../src/dashboard/theme';
+import DashboardContent from "../../../src/dashboard/components/DashboardContent";
 
 const drawerWidth = 240;
 
@@ -194,47 +190,7 @@ function Index() {
                 <div className={classes.contentAppBarSpacer}/>
                 {/* Actual page content container */}
                 <Container className={classes.contentContainer}>
-                    <Grid
-                        container
-                        spacing={4}
-                    >
-                        <Grid
-                            item
-                            xl={3}
-                            lg={3}
-                            sm={6}
-                            xs={12}
-                        >
-                            <Budget value={17000} diffPercent={-12}/>
-                        </Grid>
-                        <Grid
-                            item
-                            xl={3}
-                            lg={3}
-                            sm={6}
-                            xs={12}
-                        >
-                            <TotalUsers value={2300} diffPercent={+3}/>
-                        </Grid>
-                        <Grid
-                            item
-                            xl={3}
-                            lg={3}
-                            sm={6}
-                            xs={12}
-                        >
-                            <TaskProgress value={75.4}/>
-                        </Grid>
-                        <Grid
-                            item
-                            xl={3}
-                            lg={3}
-                            sm={6}
-                            xs={12}
-                        >
-                            <TotalProfit value={53000} />
-                        </Grid>
-                    </Grid>
+                    <DashboardContent/>
                 </Container>
             </main>
         </div>
