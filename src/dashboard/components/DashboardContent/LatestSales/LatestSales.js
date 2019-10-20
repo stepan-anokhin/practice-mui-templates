@@ -10,9 +10,16 @@ import {data, options} from './chart';
 import {Bar} from "react-chartjs-2";
 
 const useStyles = makeStyles(theme => ({
-    root: {},
-    chartContainer: {},
-    actions: {},
+    root: {
+        height: '100%',
+    },
+    chartContainer: {
+        height: 400,
+        position: 'relative',
+    },
+    actions: {
+        justifyContent: 'flex-end',
+    },
 }));
 
 function LatestSales(props) {
