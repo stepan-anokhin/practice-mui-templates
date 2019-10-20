@@ -19,7 +19,6 @@ export const data = {
 export const options = {
     responsive: true, // adjust chart size
     maintainAspectRatio: false,
-    animation: false,
     legend: { display: false },
     cornerRadius: 20,
     tooltips: {

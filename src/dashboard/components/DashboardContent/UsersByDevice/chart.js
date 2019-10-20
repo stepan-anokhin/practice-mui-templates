@@ -26,7 +26,6 @@ export const options = theme => ({
     },
     responsive: true,
     maintainAspectRatio: false,
-    animation: false,
     cutoutPercentage: 80,
     layout: {padding: 0},
     tooltips: {
