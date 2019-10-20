@@ -9,12 +9,16 @@ import Link from "next/link";
 const useStyles = makeStyles(theme => ({
     card: {
         display: 'flex',
+        height: '100%',
     },
     cardDetails: {
         flex: 1,
     },
     cardMedia: {
         width: 160,
+    },
+    item: {
+        height: '100%'
     },
 }));
 
@@ -26,7 +30,7 @@ function PreviewListItem(props) {
     return (
         <Grid item key={item.title} xs={12} md={6}>
             <Link href={item.link}>
-                <CardActionArea>
+                <CardActionArea className={classes.item}>
                     <Card className={classes.card}>
                         <div className={classes.cardDetails}>
                             <CardContent>
