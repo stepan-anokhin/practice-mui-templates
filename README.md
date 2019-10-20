@@ -211,6 +211,78 @@ const useStyles = makeStyles(theme => ({
 ``` 
 See for example here: [pages/dashboard/mini/index.js#L111](https://github.com/stepan-anokhin/practice-mui-templates/blob/master/pages/dashboard/mini/index.js#L111)
 
+## Using Maps with `react-leaflet`
+
+**Step 1.** Install `react-leaflet` and its dependencies. 
+```shell script
+npm install --save leaflet leaflet.markercluster react-leaflet react-leaflet-markercluster
+``` 
+`leaflet.markercluster` and `react-leaflet-markercluster` are required to have a nice
+marker clustering (see the 
+[Leaflet/Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster#leafletmarkercluster) 
+docs for more details). 
+<p align="center">
+    <img src="leaflet.png" width="1377" alt="Leaflet">
+</p>
+
+For some reason when `react-leaflet-markercluster` is installed like shown above
+it has an older version (like `^1.*`) incompatible with the latest `react-leaflet`. 
+This leads to the following error:
+```
+Uncaught TypeError: Super expression must either be null or a function, not object
+```
+To solve this problem do the following. 
+1. Change `react-leaflet-markercluster` version to `^2.0.0-rc3` in your `package.json`
+2. Update dependencies (e.g. by removing `package-lock.json` and re-installing it with `npm install`)
+
+The issue should be resolved after that. See this issue for more details: 
+[react-leaflet-markercluster/issues/92](https://github.com/YUzhva/react-leaflet-markercluster/issues/92) 
+
+**Step 2.** Include leaflet styles as global CSS. Otherwise tile-layer will not be displayed properly 
+(this leads to problems like this one from stackoverflow: 
+[react-leaflet map not correctly displayed](https://stackoverflow.com/questions/40365440/react-leaflet-map-not-correctly-displayed)
+
+According to leaflet [docs](https://leafletjs.com/examples/quick-start/) we need to include:
+```html
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css">
+```
+
+As we are using `Next.js` (long live Next.js for all the simplicity in brings!) we will need to include required 
+style-sheets into `Next.js`'s `Head` component wrapped around our own react-components.
+```jsx harmony
+import Head from "next/head";
+
+export default function Index() {
+    return (
+        <React.Fragment>
+            <Head>
+                <title>Mini variant Drawer</title>
+                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+                <link rel="stylesheet" href="https://unpkg.com/react-leaflet-markercluster/dist/styles.min.css" />
+            </Head>
+                <Page/>
+        </React.Fragment>
+    );
+}
+``` 
+
+The `https://unpkg.com/react-leaflet-markercluster/dist/styles.min.css` is required for the marker-clustering.
+
+**Step 3.** As we are using `Next.js` (long live Next.js for all the simplicity in brings!) we will need to 
+wrap `react-leaflet`'s `Map` component into the `next/dynamic` to make it be imported only on client side.
+This is required because leaflet uses the `window` variable which is not defined on server side. 
+```jsx harmony
+import dynamic from "next/dynamic";
+const DynamicLeafletMap = dynamic(() => import("./LeafletMap"), {ssr: false});
+```
+`DynamicLeafletMap` then could be used as normal component without causing the errors on backend. 
+
+More on this issue: 
+
+* https://github.com/zeit/next.js/wiki/FAQ#i-use-a-library-which-throws-window-is-undefined
+* https://github.com/zeit/next.js#with-no-ssr
+
+
 ## Errors
 
 ### Prop `className` did not match

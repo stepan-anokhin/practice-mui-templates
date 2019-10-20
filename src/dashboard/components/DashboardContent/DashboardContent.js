@@ -10,6 +10,7 @@ import TotalUsers from "./TotalUsers";
 import TaskProgress from "./TaskProgress";
 import TotalProfit from "./TotalProfit";
 import UsersByDevice from "./UsersByDevice";
+import Locations from "./Locations";
 
 const useStyles = makeStyles(theme => ({
     root: {},
@@ -80,6 +81,15 @@ function DashboardContent(props) {
                 xs={12}
             >
                 <UsersByDevice />
+            </Grid>
+            <Grid
+                item
+                lg={8}
+                md={12}
+                xl={9}
+                xs={12}
+            >
+                <Locations/>
             </Grid>
         </Grid>
     );

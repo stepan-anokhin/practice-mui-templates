@@ -8,6 +8,7 @@ import Drawer from "@material-ui/core/Drawer";
 import Container from "@material-ui/core/Container";
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import MenuIcon from "@material-ui/icons/Menu";
+import Head from "next/head";
 
 import MenuCategory from "../../../src/dashboard/components/MenuCategory";
 import menuCategories from '../../../src/views/Dashboard/menu-items';
@@ -199,9 +200,16 @@ function Index() {
 
 function Page() {
     return (
-        <ThemeProvider theme={theme}>
-            <Index/>
-        </ThemeProvider>
+        <React.Fragment>
+            <Head>
+                <title>Mini variant Drawer</title>
+                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+                <link rel="stylesheet" href="https://unpkg.com/react-leaflet-markercluster/dist/styles.min.css" />
+            </Head>
+            <ThemeProvider theme={theme}>
+                <Index/>
+            </ThemeProvider>
+        </React.Fragment>
     );
 }
 

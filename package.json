@@ -24,12 +24,16 @@
     "@material-ui/icons": "^4.5.1",
     "chart.js": "^2.8.0",
     "clsx": "^1.0.4",
+    "leaflet": "^1.5.1",
+    "leaflet.markercluster": "^1.4.1",
     "markdown-to-jsx": "^6.10.3",
     "next": "^9.1.1",
     "prop-types": "^15.7.2",
     "raw-loader": "^3.1.0",
     "react": "^16.10.2",
     "react-chartjs-2": "^2.8.0",
-    "react-dom": "^16.10.2"
+    "react-dom": "^16.10.2",
+    "react-leaflet": "^2.5.0",
+    "react-leaflet-markercluster": "^2.0.0-rc3"
   }
 }
