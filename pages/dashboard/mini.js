@@ -10,10 +10,10 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import MenuIcon from "@material-ui/icons/Menu";
 import Head from "next/head";
 
-import MenuCategory from "../../../src/dashboard/components/MenuCategory";
-import menuCategories from '../../../src/views/Dashboard/menu-items';
-import theme from '../../../src/dashboard/theme';
-import DashboardContent from "../../../src/dashboard/components/DashboardContent";
+import MenuCategory from "../../src/dashboard/components/MenuCategory";
+import menuCategories from '../../src/views/Dashboard/menu-items';
+import theme from '../../src/dashboard/theme';
+import DashboardContent from "../../src/dashboard/components/DashboardContent";
 
 const drawerWidth = 240;
 
