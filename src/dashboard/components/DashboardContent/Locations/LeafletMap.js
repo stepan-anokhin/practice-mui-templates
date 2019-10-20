@@ -28,7 +28,7 @@ const markers = [
 
 
 const LeafletMap = ({className}) => (
-    <Map className={className} center={center} zoom={10} maxZoom={19}>
+    <Map className={className} center={center} zoom={15} maxZoom={19}>
         <TileLayer
             attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
             url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
