@@ -7,11 +7,11 @@ const templates = [
         link: '/dashboard',
     },
     {
-        title: 'Basic Sign-Up Page',
+        title: 'Basic Authentication Templates',
         image: '/static/landing/sm-basic-sign-up.png',
         description:
-            'Basic sign-up page from material-ui examples.',
-        link: '/sign-in',
+            'Various Sign-In and Sign-up page templates.',
+        link: '/sign',
     },
     {
         title: 'Paperbase',
