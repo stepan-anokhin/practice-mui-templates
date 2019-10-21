@@ -13,6 +13,20 @@ const pages = [
             'Simple responsive Sign Up form.',
         link: '/sign/basic-sign-up',
     },
+    {
+        title: 'Side Sign In',
+        image: '/static/sign/sm-side-sign-in.png',
+        description:
+            'Sign In form with a side image.',
+        link: '/sign/side-sign-in',
+    },
+    {
+        title: 'Side Sign Up',
+        image: '/static/sign/sm-side-sign-in.png',
+        description:
+            'Sign Up form with a side image.',
+        link: '/sign/side-sign-up',
+    },
 ];
 
 export default pages;
